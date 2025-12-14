@@ -40,8 +40,8 @@ plt.axis("off")
 plt.show()
 
 reg_avg = gray_avg[0:15,0:15]
-reg_lum = gray_avg[0:15,0:15]
-reg_light = gray_avg[0:15,0:15]
+reg_lum = gray_lum[0:15,0:15]
+reg_light = gray_light[0:15,0:15]
 
 def stats(name,img):
     print(f"{name}")
