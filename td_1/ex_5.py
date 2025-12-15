@@ -7,36 +7,18 @@ hsv_img = cv.cvtColor(rgb_img, cv.COLOR_RGB2HSV)
 
 h,s,v = cv.split(hsv_img)
 
-plt.figure(figsize=(10,5))
-# hue color type r,g,b ...
-plt.subplot(1,3,1)
-plt.imshow(h,cmap="gray")
-plt.title("h")
-plt.axis("off")
-# saturation color intensity pale or vivid
-plt.subplot(1,3,2)
-plt.imshow(s,cmap="gray")
-plt.title("s")
-plt.axis("off")
-# value lum and brightness
-plt.subplot(1,3,3)
-plt.imshow(v,cmap="gray")
-plt.title("v")
-plt.axis("off")
-plt.show()
-
 gray_img_v = v
 gray_img_rgb = cv.cvtColor(rgb_img, cv.COLOR_RGB2GRAY)
 
-plt.figure(figsize=(8,4))
-plt.subplot(1,2,1)
-plt.title("gray img from v only")
-plt.imshow(gray_img_v, cmap="gray")
-plt.axis("off")
-plt.subplot(1,2,2)
-plt.title("gray from rgb")
-plt.imshow(gray_img_rgb, cmap="gray")
-plt.axis("off")
+titles = ["rgb","h","s","v","gray from v","gray from rbg"]
+imgs = [rgb_img,h,s,v,gray_img_v,gray_img_rgb]
+
+plt.figure(figsize=(20,10))
+for  i in range(6):
+    plt.subplot(1,6,i+1)
+    plt.imshow(imgs[i],cmap="gray")
+    plt.title(titles[i])
+    plt.axis("off")
 plt.show()
 
 # v ≈ grayscaling cuz v represents the brightness of each pixel from black to white so does grayscaling
