@@ -23,25 +23,13 @@ img_down = hsv2rgb(h, s_down, v)
 img_zero = hsv2rgb(h, empty_s, v)
 img_max = hsv2rgb(h, full_s, v)
 
+titles = ["hsv","s up","s down","empty s", "full s"]
+imgs = [hsv_img,img_up,img_down,img_zero,img_max]
+
 plt.figure(figsize=(10,5))
-plt.subplot(1,4,1)
-plt.title("s up")
-plt.axis("off")
-plt.imshow(img_up)
-
-plt.subplot(1,4,2)
-plt.title("s down")
-plt.axis("off")
-plt.imshow(img_down)
-
-plt.subplot(1,4,3)
-plt.title("empty s")
-plt.axis("off")
-plt.imshow(img_zero)
-
-plt.subplot(1,4,4)
-plt.title("s full")
-plt.axis("off")
-plt.imshow(img_max)
-
+for i in range(5):
+    plt.subplot(1,5,i+1)
+    plt.title(titles[i])
+    plt.imshow(imgs[i])
+    plt.axis("off")
 plt.show()

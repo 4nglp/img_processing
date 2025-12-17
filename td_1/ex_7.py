@@ -25,31 +25,16 @@ img_8bit  = reduce_depth(img_rgb, 3, 3, 2)
 img_4bit  = reduce_depth(img_rgb, 2, 1, 1)
 img_2bit  = reduce_depth(img_rgb, 1, 1, 0) 
 
-plt.figure(figsize=(12,6))
-plt.subplot(1,5,1)
-plt.title("original 24-bit")
-plt.axis("off")
-plt.imshow(img_rgb)
+titles = ["Original 24-bit", "16-bit", "8-bit", "4-bit", "2-bit"]
+imgs = [img_rgb, img_16bit, img_8bit, img_4bit, img_2bit]
 
-plt.subplot(1,5,2)
-plt.title("16-bit")
-plt.axis("off")
-plt.imshow(img_16bit)
+plt.figure(figsize=(12, 6))
 
-plt.subplot(1,5,3)
-plt.title("8-bit")
-plt.axis("off")
-plt.imshow(img_8bit)
-
-plt.subplot(1,5,4)
-plt.title("4-bit")
-plt.axis("off")
-plt.imshow(img_4bit)
-
-plt.subplot(1,5,5)
-plt.title("2-bit")
-plt.axis("off")
-plt.imshow(img_2bit)
+for i, (img, title) in enumerate(zip(imgs, titles)):
+    plt.subplot(1, 5, i + 1)
+    plt.title(title)
+    plt.axis("off")
+    plt.imshow(img)
 
 plt.show()
 
